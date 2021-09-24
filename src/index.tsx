@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { RecoilRoot } from 'recoil';
 import Left from './map/Left';
 import Right from './map/Right';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <RecoilRoot>
     <div className={'main-container'}>
       <Left />
       <Right />
     </div>
-  </React.StrictMode>,
+  </RecoilRoot>,
   document.getElementById('root')
 );
 
