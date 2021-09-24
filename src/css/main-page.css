@@ -1,0 +1,13 @@
+.main-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-gap: 1px 1px;
+    height: 100vh;
+    width: 100vw;
+}
+
+.main-item1 { grid-area: 1 / 1 / 2 / 2; background-color: thistle; }
+.main-item2 { grid-area: 1 / 2 / 2 / 2; background-color: thistle; }
+
+
