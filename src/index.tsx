@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { RecoilRoot } from 'recoil';
-import Left from './Left';
-import Right from './map/Right';
+import UnitFactory from './unitFactory';
+import UnitZone from './unitZone';
+import './css/main-page.css';
+
 
 ReactDOM.render(
   <RecoilRoot>
     <div className={'main-container'}>
-    
-      <Right />
+      <UnitFactory />
+      <UnitZone />
     </div>
   </RecoilRoot>,
   document.getElementById('root')
 );
+
 
