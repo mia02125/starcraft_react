@@ -2,36 +2,48 @@ import React from 'react';
 import { atom, useRecoilState } from 'recoil';
 import './css/main-page.css';
 
-interface unit {
+class IdGenerate {
+    private static id : number = 1;
+    public static new(count : number) {
+        if(count < 1) {
+            return IdGenerate.id++;
+        } else {
+            count += 1;
+            return count++;
+        }
+    }
+}
+
+export interface unit {
+    id? : number
     NAME : string
     HP : number
     ADK : number
 }
 
-interface unitStatus { 
+export interface unitState { 
     units : unit[]
     selectedUnitId? : number
 }
 
-const unitStatusData = atom<unitStatus>({
+export const unitStateData = atom<unitState>({
     key : 'units',
     default : {
         units : []
     }
 });
 
-const UnitCreater = () => {
+export const UnitCreater = () => {
     
-    const [ unitStatus, setUnitStatus ] = useRecoilState(unitStatusData);
+    const [ unitState, setUnitStatus ] = useRecoilState(unitStateData);
 
-    const btnCreater = (name : string, hp : number, adk : number) => {
-        const unitData : unitStatus = {
-            units : [...unitStatus.units, { NAME : name, HP : hp, ADK : adk }]
+    const btnCreater = (name : string, hp : number, adk : number, id? : number) => {
+        const unitData : unitState = {
+            units : [...unitState.units, { id : id ?? IdGenerate.new(unitState.units.length), NAME : name, HP : hp, ADK : adk }]
         }
         setUnitStatus(unitData);
     };
     
-
     return (
         <div className="main-item1">
             <h1>팩토리</h1>
