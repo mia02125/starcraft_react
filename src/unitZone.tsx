@@ -1,11 +1,11 @@
 import React from 'react';
-import { RecoilState, useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import './css/main-page.css';
-import { unit, unitState, unitStateData } from './unitFactory';
+import { unit, unitStateData } from './unitFactory';
 
 
 const UnitList = () => {
-    const [ unitState, setUnitState ] = useRecoilState(unitStateData);
+    const unitState = useRecoilValue(unitStateData);
     return (
         <div className="main-item3">
             {unitState.units.map(unit => {

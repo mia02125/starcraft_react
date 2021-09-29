@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './css/main-page.css';
-import {UnitCreater } from './unitFactory';
 import UnitFactory from './unitFactory';
 import UnitZone from './unitZone';
 

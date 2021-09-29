@@ -21,7 +21,7 @@ export interface unit {
     ADK : number
 }
 
-export interface unitState { 
+interface unitState { 
     units : unit[]
     selectedUnitId? : number
 }
@@ -33,7 +33,7 @@ export const unitStateData = atom<unitState>({
     }
 });
 
-export const UnitCreater = () => {
+const UnitCreater = () => {
     
     const [ unitState, setUnitStatus ] = useRecoilState(unitStateData);
 
@@ -64,9 +64,9 @@ export const UnitCreater = () => {
 }
 
 function App() {
- return (
+    return (
         <UnitCreater/>
- )
+    )
 }
 
 export default App;
