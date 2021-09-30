@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { RecoilRoot } from 'recoil';
-import Frame from './frame';
+import UnitFactory from './unitFactory_sub';
+import UnitZone from './unitZone';
 import './css/main-page.css';
 
 
 ReactDOM.render(
   <RecoilRoot>
-    <Frame />
+    <div className={'main-container'}>
+      <UnitFactory  />
+      <UnitZone />
+    </div>
   </RecoilRoot>,
   document.getElementById('root')
 );

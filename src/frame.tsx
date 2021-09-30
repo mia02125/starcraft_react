@@ -1,6 +1,6 @@
 import React from 'react';
 import './css/main-page.css';
-import UnitFactory from './unitFactory';
+import UnitFactory from './unitFactory_sub';
 import UnitZone from './unitZone';
 
 function App() {
