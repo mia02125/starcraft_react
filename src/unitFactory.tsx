@@ -1,72 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { atom, useRecoilState } from 'recoil';
+
 import './css/main-page.css';
 
-class IdGenerate {
-    private static id : number = 1;
-    public static new(count : number) {
-        if(count < 1) {
+class IdGenerate { 
+    private static id : number = 0;
+    public static new(num : number) { 
+        if(num < 1) { 
             return IdGenerate.id++;
         } else {
-            count += 1;
-            return count++;
+            return num++;
         }
     }
 }
 
-export interface unit {
-    id? : number
-    NAME : string
+export interface unit { 
+    idx? : number
+    NAME : string 
     HP : number
-    ADK : number
+    ATTACK : number
+    TEAM? : string
 }
 
 interface unitState { 
     units : unit[]
-    selectedUnitId? : number
+    selectedId? : 0
 }
 
 export const unitStateData = atom<unitState>({
-    key : 'units',
+    key : 'unitState',
     default : {
         units : []
     }
-});
+})
 
-const UnitCreater = () => {
+export const Factory = (prop : {num : number}) => {
     
-    const [ unitState, setUnitStatus ] = useRecoilState(unitStateData);
+    const [ unitState, setUnitState ] = useRecoilState(unitStateData);
 
-    const unitCreater = (name : string, hp : number, adk : number, id? : number) => {
-        const unitData : unitState = {
-            units : [...unitState.units, { id : id ?? IdGenerate.new(unitState.units.length), NAME : name, HP : hp, ADK : adk }]
+    const unitCreater = (name : string, hp : number, attack : number, teamNum : string, id? : number) => {
+        const state : unitState =   {
+            units : [...unitState.units, {idx : id ?? IdGenerate.new(unitState.units.length), NAME : name, HP : hp, ATTACK : attack, TEAM : teamNum  }]
         }
-        setUnitStatus(unitData);
-    };
+        setUnitState(state)
+    }
     
     return (
         <div className="main-item1">
-            <h1>팩토리</h1>
+            <h1>팩토리 {prop.num}</h1>
             <br/>
-            <button onClick={() => unitCreater('마린', 100, 15)}>마린</button>
+            <button onClick={() => unitCreater('마린', 100, 15, String(prop.num))}>마린</button>
             &nbsp;
             <span>마린 ( HP : 100 | APK : 15 )</span>
             <br/>
-            <button onClick={() => unitCreater('파이어뱃', 150, 20)}>파이어뱃</button>
+            <button onClick={() => unitCreater('파이어뱃', 150, 20, String(prop.num))}>파이어뱃</button>
             &nbsp;
             <span>파이어뱃 ( HP : 150 | APK : 20 )</span>
             <br/>
-            <button onClick={() => unitCreater('뮤탈', 200, 8)}>뮤탈</button>
+            <button onClick={() => unitCreater('뮤탈', 200, 12, String(prop.num))}>뮤탈</button>
             &nbsp;
             <span>뮤탈 ( HP : 200 | APK : 8 )</span>
         </div>
     )
 }
-
-function App() {
-    return (
-        <UnitCreater/>
-    )
-}
-
-export default App;
