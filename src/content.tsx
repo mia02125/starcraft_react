@@ -5,27 +5,28 @@ import { Factory } from './unitFactory';
 
 function App() {
     
-    const [ factory, setFactory ] = useState<JSX.Element[]>([]);
-    const [ zone, setZone ] = useState<JSX.Element[]>([]);
+    const [ zones, setZones ] = useState<JSX.Element[]>([]);
 
     const handlerAdd = () => {
-        setFactory([...factory, <Factory  num={factory.length+1}/>])
-        // unitZone 추가 기능 
-        setZone([...zone, <UnitList />])
+        setZones([...zones, 
+            <div>
+                <Factory  Team={zones.length+1}/>
+                <UnitList Team={zones.length+1}/>
+            </div>])
     }
 
     return (
 
         <div className={'main-container'}>
-            
+            <div>
             <button onClick={() =>handlerAdd()}>추가</button>
-            
-            {factory.map(item => {
+            </div>
+            <br />
+            <div>
+            {zones.map(item => {
                 return item
             })}
-            {zone.map(item => {
-                return item
-            })}
+            </div>
         </div>
     )
 }
