@@ -7,20 +7,16 @@ let count : number= 0;
 
 function App() {
     
-    const [ zones, setZones ] = useState<number[]>([]);
+    const [ zones, setZones ] = useState<JSX.Element[]>([]);
 
     const handlerAdd = () => {
-        setZones([...zones, count++])
+        setZones([...zones, 
+            <div>
+                <Factory  Team={zones.length+1}/>
+                <UnitList Team={zones.length+1}/>
+            </div>])
     }
 
-    const Zone = ( props : { zone : any } ) =>{
-        return (
-            <div>
-                <Factory  Team={props.zone}/>
-                <UnitList Team={props.zone}/>
-            </div>
-        )
-    }
     return (
 
         <div className={'main-container'}>
@@ -30,12 +26,11 @@ function App() {
             <br />
             <div>
             {zones.map(item => {
-                return <Zone zone={item} />
+                return item
             })}
             </div>
         </div>
     )
 }
-
 
 export default App;
