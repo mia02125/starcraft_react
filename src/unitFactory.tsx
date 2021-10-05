@@ -24,7 +24,8 @@ export interface IUnit {
 
 interface IUnitState { 
     units : IUnit[]
-    selectedId? : 0
+    selectedATK? : number
+    selectedSLD? : number
 }
 
 export const unitStateData = atom<IUnitState>({

@@ -7,7 +7,8 @@
     width: 100vw;
 }
 
-.selected { background-color: cadetblue;}
+.selectedATK { background-color: cadetblue;}
+.selectedSLD { background-color: brown;}
 
 .main-item1 { grid-area: 1 / 1 / 2 / 2; background-color: burlywood; }
 .main-item2 { grid-area: 1 / 2 / 2 / 2; background-color: thistle; }
