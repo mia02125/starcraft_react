@@ -11,5 +11,6 @@
 .selectedSLD { background-color: brown;}
 
 .main-item1 { grid-area: 1 / 1 / 2 / 2; background-color: burlywood; }
-.main-item2 { grid-area: 1 / 2 / 2 / 2; background-color: thistle; }
-.main-item3 { grid-area: 2 / 1 / 2 / 2; background-color: thistle; }
+.main-item2 { grid-area: 2 / 1 / 2 / 2; background-color: thistle; }
+.main-item3 { grid-area: 1 / 2 / 2 / 4; background-color: thistle; }
+.main-item4 { grid-area: 2 / 2 / 2 / 4; background-color: thistle; }

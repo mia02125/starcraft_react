@@ -30,11 +30,11 @@ const UnitListItem = (prop : {unit : IUnit}) => {
                 units : [...unitState.units],
                 selectedATK : id
             }
-        
         setUnitState(states);
     }
 
     const selectedData = () => {
+        console.log("selectedATK : ", unitState.selectedATK)
         if(unitState.selectedATK != undefined) {
             return 'selectedATK';
         } else { 

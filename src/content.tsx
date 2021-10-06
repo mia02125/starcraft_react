@@ -22,7 +22,6 @@ function App() {
         )
     }
     return (
-
         <div className={'main-container'}>
             <div>
             <button onClick={() =>handlerAdd()}>추가</button>
@@ -33,6 +32,7 @@ function App() {
                 return <Zone zone={item} />
             })}
             </div>
+            
         </div>
     )
 }
