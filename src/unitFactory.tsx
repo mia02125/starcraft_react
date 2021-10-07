@@ -4,12 +4,12 @@ import { atom, useRecoilState } from 'recoil';
 import './css/main-page.css';
 
 class IdGenerate { 
-    private static id : number = 0;
+    private static id : number = 1;
     public static new(num : number) { 
         if(num < 1) { 
             return IdGenerate.id++;
         } else {
-            return num++;
+            return ++num;
         }
     }
 }
@@ -22,7 +22,7 @@ export interface IUnit {
     TEAM? : string
 }
 
-interface IUnitState { 
+export interface IUnitState { 
     units : IUnit[]
     selectedATK? : number
     selectedSLD? : number
@@ -34,7 +34,11 @@ export const unitStateData = atom<IUnitState>({
         units : []
     }
 })
-
+/**
+ * 유닛 생성기 
+ * @param prop 
+ * @returns 
+ */
 export const Factory = (prop : {Team : number}) => {
     
     const [ unitState, setUnitState ] = useRecoilState(unitStateData);
@@ -52,15 +56,15 @@ export const Factory = (prop : {Team : number}) => {
             <br/>
             <button onClick={() => unitCreater('마린', 100, 15, String(prop.Team))}>마린</button>
             &nbsp;
-            <span>마린 ( HP : 100 | APK : 15 )</span>
+            <span>마린 ( 체력 : 100 | 공격력 : 15 )</span>
             <br/>
             <button onClick={() => unitCreater('파이어뱃', 150, 20, String(prop.Team))}>파이어뱃</button>
             &nbsp;
-            <span>파이어뱃 ( HP : 150 | APK : 20 )</span>
+            <span>파이어뱃 ( 체력 : 150 | 공격력 : 20 )</span>
             <br/>
             <button onClick={() => unitCreater('뮤탈', 200, 12, String(prop.Team))}>뮤탈</button>
             &nbsp;
-            <span>뮤탈 ( HP : 200 | APK : 8 )</span>
+            <span>뮤탈 ( 체력 : 200 | 공격력 : 8 )</span>
         </div>
     )
 }

@@ -25,26 +25,29 @@ const UnitListItem = (prop : {unit : IUnit}) => {
     const [ unitState , setUnitState ] = useRecoilState(unitStateData);
 
     const onSelected = (id? : number) => { 
+            let states : any;
             // 해당 id값이   selectedATK값을 가지고 있다면 selectedSLD값을 갖게 해야한다.
-            const states = {
-                units : [...unitState.units],
-                selectedATK : id
+            if(unitState.selectedATK === ( 0 || undefined)) {
+                states = {
+                    units : [...unitState.units],
+                    selectedATK : id,
+                    selectedSLD : unitState.selectedSLD
+                }
+            } else {
+                states = {
+                    units : [...unitState.units],
+                    selectedATK : unitState.selectedATK,
+                    selectedSLD : id
+                    
+                }   
             }
         setUnitState(states);
     }
-
-    const selectedData = () => {
-        console.log("selectedATK : ", unitState.selectedATK)
-        if(unitState.selectedATK != undefined) {
-            return 'selectedATK';
-        } else { 
-            return 'selectedSLD';
-        }
-    }
-
+    // 공격 유닛과 방어 유닛 선택 시 구분색상이 없음 
     return (
-        <div className={ prop.unit.idx === ( unitState.selectedATK || unitState.selectedSLD ) ? selectedData() : ''} onClick={() => onSelected(prop.unit.idx)}>
-            <span>Team : {prop.unit.TEAM} - {prop.unit.NAME} | hp : {prop.unit.HP} | adk : {prop.unit.ATTACK}</span>
+        <div className={ prop.unit.idx === unitState.selectedATK ? 'selectedATK' : '' } 
+                        onClick={() => onSelected(prop.unit.idx)}>
+            <span>Team : {prop.unit.TEAM} - {prop.unit.NAME} | 체력 : {prop.unit.HP} | 공격력 : {prop.unit.ATTACK}</span>
         </div>
     )
 }
