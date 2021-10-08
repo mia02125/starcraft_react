@@ -45,8 +45,7 @@ const UnitListItem = (prop : {unit : IUnit}) => {
     }
     // 공격 유닛과 방어 유닛 선택 시 구분색상이 없음 
     return (
-        <div className={ prop.unit.idx === unitState.selectedATK ? 'selectedATK' : '' } 
-                        onClick={() => onSelected(prop.unit.idx)}>
+        <div onClick={() => onSelected(prop.unit.idx)}>
             <span>Team : {prop.unit.TEAM} - {prop.unit.NAME} | 체력 : {prop.unit.HP} | 공격력 : {prop.unit.ATTACK}</span>
         </div>
     )
