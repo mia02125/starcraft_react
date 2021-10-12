@@ -20,13 +20,58 @@ export interface IUnit {
     hp : number
     attack : number
     team? : string
-    groundAir : string
+    groundAir? : string
 }
 
 export interface IUnitState { 
     units : IUnit[]
     selectedATK? : number
     selectedSLD? : number
+}
+
+class marin implements IUnit {
+    idx?: number | undefined;
+    name: string;
+    hp: number; 
+    attack: number;
+    team?: string | undefined;
+
+    public constructor(name : string, hp : number, attack : number, team : string) {
+        this.name = name
+        this.hp = hp
+        this.attack = attack
+        this.team = team
+    }   
+}
+
+class fireBat implements IUnit {
+    idx?: number | undefined;
+    name: string;
+    hp: number; 
+    attack: number;
+    team?: string | undefined;
+
+    public constructor(name : string, hp : number, attack : number, team : string) {
+        this.name = name
+        this.hp = hp
+        this.attack = attack
+        this.team = team
+    }   
+}
+
+class mutal implements IUnit {
+    idx?: number | undefined;
+    name: string;
+    hp: number; 
+    attack: number;
+    team?: string | undefined;
+
+    public constructor(name : string, hp : number, attack : number, team : string) {
+        this.name = name
+        this.hp = hp
+        this.attack = attack
+        this.team = team
+    }   
 }
 
 export const unitStateData = atom<IUnitState>({
