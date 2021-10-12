@@ -9,7 +9,7 @@ export const UnitList = (prop : {Team? : number}) => {
     const unitState = useRecoilValue(unitStateData);
 
     const units = unitState.units.filter(item => {
-        return Number(item.TEAM) === prop.Team
+        return Number(item.team) === prop.Team
     })
     return (
         <div className="main-item2">
@@ -46,7 +46,7 @@ const UnitListItem = (prop : {unit : IUnit}) => {
     // 공격 유닛과 방어 유닛 선택 시 구분색상이 없음 
     return (
         <div onClick={() => onSelected(prop.unit.idx)}>
-            <span>Team : {prop.unit.TEAM} - {prop.unit.NAME} | 체력 : {prop.unit.HP} | 공격력 : {prop.unit.ATTACK}</span>
+            <span>Team : {prop.unit.team} - {prop.unit.name} | 체력 : {prop.unit.hp} | 공격력 : {prop.unit.attack}</span>
         </div>
     )
 }

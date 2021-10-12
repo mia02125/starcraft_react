@@ -47,13 +47,13 @@ export const Detail = (prop : { ATKId? : number, SLDId? : number}) => {
             {/* 공격 팀 */}
             { ATKUnit !== undefined ? 
                 <div className="main-item3">
-                    <h2>{ATKUnit?.TEAM || ''} 팀</h2>
+                    <h2>{ATKUnit?.team || ''} 팀</h2>
                     <span>
-                        유닛명 : {ATKUnit?.NAME}
+                        유닛명 : {ATKUnit?.name}
                         <br/>
-                        체력 : {ATKUnit?.HP}
+                        체력 : {ATKUnit?.hp}
                         <br/>
-                        공격력 : {ATKUnit?.ATTACK}
+                        공격력 : {ATKUnit?.attack}
                     </span>
                     <br/>
                     <button onClick={() => onCancel('atk')}>선택 해제</button>
@@ -69,13 +69,13 @@ export const Detail = (prop : { ATKId? : number, SLDId? : number}) => {
             {/* 방어 팀 */}
             { SLDUnit !== undefined ? 
                 <div className="main-item4">
-                    <h2>{SLDUnit?.TEAM || ''} 팀</h2>
+                    <h2>{SLDUnit?.team || ''} 팀</h2>
                     <span>
-                        유닛명 : {SLDUnit?.NAME}
+                        유닛명 : {SLDUnit?.name}
                         <br/>
-                        체력 : {SLDUnit?.HP}
+                        체력 : {SLDUnit?.hp}
                         <br/>
-                        공격력 : {SLDUnit?.ATTACK}
+                        공격력 : {SLDUnit?.attack}
                     </span>
                     <br/>
                     <button onClick={() => onCancel('sld')}>선택 해제</button>
